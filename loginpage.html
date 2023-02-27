@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Page</title>
+        </head>
+        <h1>Welcome, Please Log In</h1>
+        <h1 style = text-align:center;>
+        <div style = "display:flex;justify-content:center;align-items:center;width:500px;height:500px;position:relative;border-radius:50%;background-color:#FFA69E;color:#DDFFF7;margin-left: auto;margin-right: auto;">
+          <div class = "container">
+            <label for = "uname"><b>Username</b></label>
+            <br>
+            <input type = "text" placeholder = "Enter Username" id = "uname" required>
+        <br>
+            <label for = "psw"><b>Password</b></label>
+            <br>
+            <input type = "password" placeholder = "Enter Password" id = "psw" required>
+        <br>
+        <button type = "button" onclick = "myFunction()" >Submit
+              <script>
+                function myFunction() {
+                  if (document.getElementById("uname").value == "AlexBessin")
+                    if (document.getElementById("psw").value == "password")
+                      window.alert("Incorrect User/Password");
+                  else {
+                    window.alert("Incorrect User/Password");
+                  }
+                }
+              </script>
+            <button type = "button" class = "cancelbtn">Cancel</button>
+          </div>
+        </div>
+        <div class = "navbar">
+          <a href="https://ict.gctaa.net/">Jeff's Site</a>
+          <a href="https://github.com/PotatoAQT/Login-Page-Test">My GitHub Repo</a>
+              <i class="fa fa-caret-down"></i>
+            </div>
+          <style>
+            html{
+              background-color: #93E1D8;
+            }
+            h1 {
+              text-align: center;
+              color: #861657;
+              font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            ul {
+              list-style-type: none;
+            }
+            .navnbar {
+              overflow: hidden;
+              background-color: #AA4465;
+              font-family: Arial;
+            }
+            .navbar a{
+              float: left;
+              font-size: 16px;
+              color: white;
+              text-align: center;
+              padding: 14px 16px;
+            }
+            .navbar a:hover, .dropdown:hover .dropbtn {
+              background-color: #FFA69E;
+            }
+            </style>
+           
+            <form action="action_page.php" method="post">
+
+              </form>
+              <footer>
+                <a id="vLink1"><strong> HTML </strong> Valid! </a> |
+                <a id="vLink2"><strong> CSS </strong> Valid! </a>
+                <style>
+                  footer {
+                    text-align: center;
+                  }
+                </style>
+                </footer>
+        </body>
+    </head>
+</html>
