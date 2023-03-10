@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style> html {scroll-behavior: smooth;}</style>
+  <link rel="stylesheet" href="stylesheet2.css">
+  <meta charset="utf-8">
+  <title>Deyvi's Awesome Website!</title>
+    <script>
+        function init() {
+          var loc = window.location.href;
+          var HTMLvalidLinkStr = 'http://validator.w3.org/check?uri=' + loc;
+          var CSSvalidLinkStr = 'http://jigsaw.w3.org/css-validator/validator?uri=' +
+                                loc + '?profile=css3';
+          document.getElementById("vLink1").setAttribute("href", HTMLvalidLinkStr);
+          document.getElementById("vLink2").setAttribute("href", CSSvalidLinkStr);
+        }
+        window.onload = init;
+    
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+
+</script>
+</head>
+<body>
+  <main>
+    <h1>Nintynine</h1>
+    <ul>
+      <a href="https://deyuman.github.io/website/">Main Website</a>
+      <a href="nintynine.html">nintynine</a>
+      <a href="index.html">home</a>
+      <a href="planet.html">planet</a>
+      <a href="buzzwords.html">buzzwords</a>
+      </ul>
+  </main>
+  <p>
+    Body {<br>&nbsp;&nbsp;	&nbsp;	&nbsp;	&nbsp;background-color: #008080;
+    <br>&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;color: #fffff; <br>}
+  </p>
+  <div class="questions">
+    <url id="ans1" ondrop="drop(event)" ondragover="allowDrop(event)"></url><div>A rule</div>
+    <url id="ans1" ondrop="drop(event)" ondragover="allowDrop(event)"></url><div>A value</div>
+    <url id="ans1" ondrop="drop(event)" ondragover="allowDrop(event)"></url><div>A property</div>
+    <url id="ans1" ondrop="drop(event)" ondragover="allowDrop(event)"></url><div>A declaration</div>
+  </div>
+  <img id="drag1" src="check.png" draggable="true" ondragstart="drag(event)" width="50" height="69">
+  <footer>
+    <a class="pie" id="vLink1"><strong> HTML </strong> Valid! </a> |
+    <a class="pie" id="vLink2"><strong> CSS </strong> Valid! </a>
+  </footer>
+</body>
+</html>
