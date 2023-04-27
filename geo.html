@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chipotle Calculator</title>
+    <link rel="icon" href="chipotlefavicon.jpg">
+</head>
+<body>
+	<h1>Finding the distance to my favorite Chipotle!</h1>
+
+	<p>Click the button below to get your current location:</p>
+	<div>
+        <button onclick="getLocation()">Get Location</button>
+    <div>
+
+	<p id="demo"></p> 
+
+	<script>
+        function distance(lat1, lon1, lat2, lon2, unit) {
+  var radlat1 = Math.PI * lat1/180
+  var radlat2 = Math.PI * lat2/180
+  var radlon1 = Math.PI * lon1/180
+  var radlon2 = Math.PI * lon2/180
+  var theta = lon1-lon2
+  var radtheta = Math.PI * theta/180
+  var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+  dist = Math.acos(dist)
+  dist = dist * 180/Math.PI
+  dist = dist * 60 * 1.1515
+  if (unit=="K") { dist = dist * 1.609344 }
+  if (unit=="N") { dist = dist * 0.8684 }
+  return dist
+}
+
+function chipotleLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showDistance);
+  } else {
+    alert("Geolocation is not supported by this browser.");
+  }
+}
+
+function showDistance(position) {
+  var lat1 = position.coords.latitude;
+  var lon1 = position.coords.longitude;
+  var lat2 = 38.895090
+  var lon2 = -77.092210
+  var d = distance(lat1, lon1, lat2, lon2, "K");
+  alert("You are " + d + " kilometers away from my favorite chipotle!");
+}
+
+chipotleLocation();
+
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition);
+			} else {
+				document.getElementById("demo").innerHTML = "Geolocation is not supported by this browser.";
+			}
+		}
+
+		function showPosition(position) {
+			document.getElementById("demo").innerHTML = "Latitude: " + position.coords.latitude + 
+			"<br>Longitude: " + position.coords.longitude;
+		}
+	</script>
+</body>
+<footer>
+<a href="https://www.movable-type.co.uk/scripts/latlong.html">Distance Calculations</a>
+<a href="https://locations.chipotle.com/va/arlington/4520-lee-hwy">Chipotle in Question</a>
+</footer>
+<style>
+    h1 {
+        position: relative;
+        text-align: center;
+        color: white;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    p{
+        position: relative;
+        text-align: center;
+        color: white;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    div{
+        text-align: center;
+        color: white;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    body{
+        background-image: url("chipotlebackground.png");
+        background-size:  100%;
+    }
+</style>
+</html>
